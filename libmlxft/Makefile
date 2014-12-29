@@ -19,13 +19,14 @@ SRC = ft_mlx_draw_square.c \
 		ft_mlx_draw_circle.c \
 		ft_mlx_draw_center.c \
 		ft_create_map.c \
-		ft_lstnew.c ft_lstprint.c \
+		ft_lstnew.c \
 		ft_view.c \
 		ft_mlx_draw_grid.c \
 		ft_launch.c \
 		ft_rotate.c \
 		ft_define_color.c \
-		ft_print_param.c
+		ft_print_param.c \
+		ft_error.c \
 
 OBJ = $(SRC:.c=.o)
 

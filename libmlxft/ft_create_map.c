@@ -66,6 +66,7 @@ static void     ft_fill_list(char *pt, t_param *param)
 	if (ft_atoi(pt) < param->z_min)
 		param->z_min = ft_atoi(pt);
 
+
 	if (param->xy[0] > param->x_max)
 	param->x_max = param->xy[0];
 
@@ -73,10 +74,6 @@ static void     ft_fill_list(char *pt, t_param *param)
 		param->y_max = param->xy[1];
 }
 
-
-
-
-#include <stdio.h>
 /* the integer tab xy[] is fill with x coord in 0, y coord in 1,
 x maximum in 2, maximun y in 3*/
 int				ft_create_map(t_param *param)
@@ -93,7 +90,6 @@ int				ft_create_map(t_param *param)
 		param->xy[0] = -1;
 		while (tab[++(param->xy[0])])
 		{
-			//printf ("x%d x_max%d\n", param->xy[0], param->x_max);
 			ft_fill_list(tab[param->xy[0]], param);
 		}
 		param->xy[1]++;

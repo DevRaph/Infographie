@@ -73,6 +73,7 @@ typedef struct		s_dlist
 /*
 * Params structure
 */
+
 typedef struct		s_param
 {
 	char			*file;
@@ -94,13 +95,22 @@ typedef struct		s_param
 	t_dlist			*list;
 	int				rot;
 	int				rtt;
+	int				water;
+	int				para;
+	int				help;
+	int				sl;
+	t_mlxp			btm;
+	char			*data;
+	int				bpp;
+	int				endian;
 }					t_param;
 
-void		ft_mlx_draw_square(t_mlxenv * e, t_mlxp pt, int side_x, int side_y);
+int 		ft_error(char const *s);
+
+void		ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, t_mlxp p2, int color);
 t_mlxp		ft_new_point(int x, int y, int rvb);
-void		ft_mlx_draw_line(t_mlxenv *e, t_mlxp p1, t_mlxp p2, int opt);
-//int			ft_get_rgb(int r, int g, int b);
-//int			ft_get_color(int rgb, int opt);
+//void		ft_mlx_draw_line(t_mlxenv *e, t_mlxp p1, t_mlxp p2, int opt);
+void		ft_mlx_draw_line(t_param *s, t_mlxp p, t_mlxp p2, int opt);
 
 void		ft_mlx_draw_circle(t_mlxenv *e, t_mlxp p, int r, int opt);
 void		ft_mlx_draw_center(t_mlxenv *e);
@@ -108,16 +118,28 @@ int			ft_create_map(t_param *param);
 
 t_dlist		*ft_lstnew(int content, int i, int j);
 void		ft_lstprint(t_dlist *my_list);
-//void		ft_view_para(t_param *param);
 void		ft_view(t_param *param);
 
 void		ft_mlx_draw_grid(t_param *param);
 int			ft_check_grid(char *map);
-void		ft_launch(t_param *p);
 void		ft_rotate(t_dlist **list, t_param p);
 
 int			ft_define_color(t_param *p, int z);
 
 void		ft_print_param(t_param *p);
+
+
+void		ft_work(t_param *p, int clear);
+int			ft_mouse_hook(int button, int x, int y, t_param *p);
+int			ft_key_hook(int k, t_param *p);
+int			ft_expose_hook(t_param *p);
+
+void		ft_launch(t_param *p, char *file);
+
+void		ft_init_param(t_param *p, char *file);
+
+
+
+void	ft_param_print(char *s, t_param *p);
 
 #endif

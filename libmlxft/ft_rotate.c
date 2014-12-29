@@ -24,16 +24,12 @@ t_mlxp	ft_rotate_x(t_mlxp pivot, float theta, t_mlxp pt)
 
 	sinus = sin(theta);
 	cosinus = cos(theta);
-	//pt.x -= pivot.x;
 	pt.y -= pivot.y;
-	pt.z -= pivot.z; //perso
+	pt.z -= pivot.z; 
 	y = pt.y * cosinus - pt.z * sinus;
-	z = pt.y * sinus + pt.z * cosinus; //perso
-	//x = pt.x;
-	//pt.x = x + pivot.x;
+	z = pt.y * sinus + pt.z * cosinus; 
 	pt.y = y + pivot.y;
-	pt.z = z + pivot.z; //perso
-	//pt.z = z;
+	pt.z = z + pivot.z;
 	return (pt);
 }
 
@@ -48,14 +44,12 @@ t_mlxp	ft_rotate_y(t_mlxp pivot, float theta, t_mlxp pt)
 	sinus = sin(theta);
 	cosinus = cos(theta);
 	pt.x -= pivot.x;
-	//pt.y -= pivot.y;
-	pt.z -= pivot.z;  //perso
+	pt.z -= pivot.z;
 	z = pt.z * cosinus - pt.x * sinus;
 	x = pt.z * sinus + pt.x * cosinus;
-	//y = pt.y;
 	pt.x = x + pivot.x;
-	//pt.y = y + pivot.y;
-	pt.z = z + pivot.z;  //perso
+	pt.y = y + pivot.y;
+	pt.z = z + pivot.z;
 	pt.z = z;
 	return (pt);
 }

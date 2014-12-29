@@ -40,21 +40,21 @@ void		ft_view_iso(t_param *p)
 	t_dlist		*ptr;
 	int			np_xmax;
 	int			np_ymax;
+	int			nz;
 
 	ptr = p->list;
 	while (ptr)
 	{
-		//transformation des x
+		nz = (p->water == 0 && ptr->p.z < 0) ? 0 : -(ptr->p.z);
+		/* transformation des x */
 		np_xmax = CTE1 * p->x_max * p->sq - CTE2 * p->y_max * p->sq;
 		ptr->np.x = (WIN_X - np_xmax) / 2 + p->ox; //centrage;
 		ptr->np.x += CTE1 * ptr->p.x * p->sq - CTE2 * ptr->p.y * p->sq;// - D_X * ptr->p.y;
-		// transformation des y
-		np_ymax = -(ptr->p.z) * p->h + CTE1 / 2 * p->x_max * p->sq + CTE2 / 2 * p->y_max * p->sq;
+		/* transformation des y */
+		np_ymax = nz * p->h + CTE1 / 2 * p->x_max * p->sq + CTE2 / 2 * p->y_max * p->sq;
 		ptr->np.y = (WIN_Y - np_ymax) / 2 + p->oy;
-		ptr->np.y += -(ptr->p.z) * p->h + CTE1 / 2 * ptr->p.x * p->sq + CTE2 / 2 * ptr->p.y * p->sq;// + D_Y * ptr->p.x;
-		// transformation des z
-		//ptr->np.y -= 5 * ptr->p.z;
-
+		ptr->np.y += nz * p->h + CTE1 / 2 * ptr->p.x * p->sq + CTE2 / 2 * ptr->p.y * p->sq;// + D_Y * ptr->p.x;
+		/* color */
 		ptr->np.rgb = ft_define_color(p, ptr->p.z);
 		ptr = ptr->next;
 	}
@@ -66,15 +66,17 @@ void		ft_view_para(t_param *p)
 	t_dlist		*ptr;	
 	int			np_xmax;
 	int			np_ymax;
+	int			nz;
 
 	d_x = (p->sq > 1) ? p->sq / 5 : 1;
 	ptr = p->list;
 	while (ptr)
 	{
+		nz = (p->water == 0 && ptr->p.z < 0) ? 0 : -(ptr->p.z);
 		ptr->np.x = (WIN_X - p->x_max * p->sq) / 2 + p->ox; //centrage;
-		ptr->np.x += ptr->p.x * p->sq + CTE1 * -(ptr->p.z) * p->h;
+		ptr->np.x += ptr->p.x * p->sq + CTE1 * nz * p->h;
 		ptr->np.y = (WIN_Y - p->y_max * p->sq) / 2 + p->oy;
-		ptr->np.y += ptr->p.y * p->sq + CTE1 / 2 * -(ptr->p.z) * p->h;
+		ptr->np.y += ptr->p.y * p->sq + CTE1 / 2 * nz * p->h;
 		ptr->np.rgb = ft_define_color(p, ptr->p.z);
 		ptr = ptr->next;
 	}
@@ -91,18 +93,15 @@ void	ft_view(t_param *p)
 		y = p->y_max / WIN_Y;
 		if (p->x_max * p->sq >= WIN_X || p->y_max * p->sq >= WIN_Y)
 		{
+			p->sq = 30;
+			p->h = p->sq / 5;
 			p->sq = (x >= y) ? WIN_X / p->x_max - 1 : WIN_Y / p->y_max - 1;
-			//p->sq -= 2;
-			p->sq = (p->sq >= 0) ? p->sq : 1;
-			p->h  = p->sq / 5;
+			p->sq = (p->sq > 0) ? p->sq : 1;
 			p->reset = 1;
 			p->rot = 0;
 			p->rtt = 0;
 		}
 	}
-
-
-
 	if (p->view == 1)
 		ft_view_iso(p);
 	else if (p->view == 2)

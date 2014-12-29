@@ -13,43 +13,59 @@
 #include "libmlxft.h"
 #include <mlx.h>
 
-// draw grid-point
 
-void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, int side_x, int side_y)
+void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, t_mlxp p2, int color)
 {
 	int		x;	
 	int		y;
 
-	//sleep(2);
 	y = pt.y;
-	while (y < (pt.y + side_y))
+	while (y < (pt.y + p2.y))
 	{
 		x = pt.x;
-		while (x < (pt.x + side_x))
+		while (x < (pt.x + p2.x))
 		{
-			mlx_pixel_put(e->mlx, e->win, x, y, ft_get_rgb(x - pt.x, 255 - (x - pt.x), 0));
-			x += 10;
-			//usleep(500);
+			mlx_pixel_put(e->mlx, e->win, x, y, color);
+			
+			x++;
 		}
-		y += 10;
+		y++;
 	}
 }
 
-
-// draw square 1
-/*
-void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, int side_x, int side_y)
+/*void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, t_mlxp p2, int color)
 {
 	int		x;	
 	int		y;
 
 	y = pt.y;
-	while (y < (pt.y + side_x))
+	while (y < (pt.y + p2.y))
 	{
 		x = pt.x;
-		while (x < (pt.x + side_y))
+		while (x < (pt.x + p2.x))
 		{
-			mlx_pixel_put(e->mlx, e->win, x, y, ft_get_rgb(x - pt.x, 0, 255 - (x - pt.x)));
+			mlx_pixel_put(e->mlx, e->win, x, y, color);
+			x++;
+		}
+		y++;
+	}
+}
+*/
+
+// draw square 1
+/*
+void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp pt, int p2.x, int p2.y)
+{
+	int		x;	
+	int		y;
+
+	y = pt.y;
+	while (y < (pt.y + p2.x))
+	{
+		x = pt.x;
+		while (x < (pt.x + p2.y))
+		{
+			mlx_pixel_put(e->mlx, e->win, x, y, color);
 			x++;
 		}
 		y++;
@@ -70,7 +86,7 @@ void	ft_mlx_draw_square(t_mlxenv *e, t_mlxp p1, t_mlxp p2)
 		x = p1.x;
 		while (x < p2.x)
 		{
-			mlx_pixel_put(e->mlx, e->win, x, y, ft_get_rgb(x - p1.x, 0, 255 - (x - p1.x)));
+			mlx_pixel_put(e->mlx, e->win, x, y, color);
 			x++;
 		}
 		y++;

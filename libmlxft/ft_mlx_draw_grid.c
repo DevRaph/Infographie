@@ -76,10 +76,12 @@ void		ft_mlx_draw_grid(t_param *param)
 		if (ptr->next != 0)
 		{
 			if (ptr->next->p.y == ptr->p.y)
-			ft_mlx_draw_line(&param->e, ptr->np, ptr->next->np, LINE_C_SHD);
+				ft_mlx_draw_line(param, ptr->np, ptr->next->np, LINE_C_SHD);
+			//ft_mlx_draw_line(&param->e, ptr->np, ptr->next->np, LINE_C_SHD);
 		}
 		if (ptr->down != 0)
-			ft_mlx_draw_line(&param->e, ptr->np, ptr->down->np, LINE_C_SHD);
+			ft_mlx_draw_line(param, ptr->np, ptr->down->np, LINE_C_SHD);
+			//ft_mlx_draw_line(&param->e, ptr->np, ptr->down->np, LINE_C_SHD);
 		ptr = ptr->next;
 	}
 }
