@@ -1,2 +1,0 @@
-make -C ./libmlxft/ re
-gcc -o fdf main.c -L/usr/x11/lib -lmlx -lXext -lX11 -L libmlxft -lmlxft -L libft -lft
