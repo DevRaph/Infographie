@@ -1,14 +1,14 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpinet <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: rpinet <rpinet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/01/22 17:50:16 by rpinet            #+#    #+#              #
-#    Updated: 2015/01/22 17:50:21 by rpinet           ###   ########.fr        #
+#    Created: 2014/11/07 13:46:37 by rpinet            #+#    #+#              #
+#    Updated: 2014/11/21 17:30:21 by rpinet           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME = libft.a
 
@@ -26,7 +26,7 @@ SRC = 	ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_strndup.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
 	ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_swap.c \
 	ft_tolower.c ft_toupper.c \
-	get_next_line.c ft_mallocat.c\
+	get_next_line.c ft_mallocat.c \
 	ft_atoi_base.c ft_convert_base.c ft_get_base.c ft_strpos.c
 
 OBJ = $(SRC:.c=.o)

@@ -46,7 +46,7 @@ static void		ft_para_print(t_param *p, t_mlxp p1, t_mlxp p2)
 	else if (p->color == 2)
 		str = "color mode: height";
 	else
-		str = (p->view >= 4) ? "color mode: game" : "color mode: carto";
+		str = (p->color >= 4) ? "color mode: game" : "color mode: carto";
 	mlx_string_put(p->e.mlx, p->e.win, 200, 20, WHITE, str);
 }
 
@@ -67,6 +67,8 @@ static void		ft_help_print(t_param *p, t_mlxp p1, t_mlxp p2)
 	mlx_string_put(p->e.mlx, p->e.win, p1.x + 5, p1.y + 95, WHITE, str);
 	str = "< >  change height";
 	mlx_string_put(p->e.mlx, p->e.win, p1.x + 5, p1.y + 115, WHITE, str);
+	str = "*    center";
+	mlx_string_put(p->e.mlx, p->e.win, p1.x + 5, p1.y + 135, WHITE, str);
 }
 
 static void		ft_print(t_param *p, t_mlxp p1, t_mlxp p2)
@@ -80,7 +82,7 @@ static void		ft_print(t_param *p, t_mlxp p1, t_mlxp p2)
 		p1.x = WIN_X - 155;
 		p1.y = 5;
 		p2.x = p1.x + 50;
-		p2.y = 130;
+		p2.y = 140;
 		ft_help_print(p, p1, p2);
 	}
 }

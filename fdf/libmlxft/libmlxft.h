@@ -70,8 +70,9 @@ typedef struct		s_param
 	int				h;
 	int				view;
 	int				color;
-	int				reset;
+	int				*col;
 	int				nb_color;
+	int				reset;
 	int				xy[2];
 	t_mlxenv		e;
 	t_dlist			*list;
@@ -108,5 +109,6 @@ int					ft_expose_hook(t_param *p);
 void				ft_launch(t_param *p, char *file);
 void				ft_init_param(t_param *p, char *file);
 void				ft_param_print(char *s, t_param *p);
+void				ft_init_color(t_param *p);
 
 #endif

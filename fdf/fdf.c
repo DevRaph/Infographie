@@ -20,18 +20,23 @@
 int		ft_expose_hook(t_param *p)
 {
 	mlx_put_image_to_window(p->e.mlx, p->e.win, p->e.img, 0, 0);
+	ft_print_param(p);
 	return (0);
 }
 
+#include <stdio.h>
 int		ft_key_hook(int k, t_param *p)
 {
-	mlx_destroy_image(p->e.mlx, p->e.img);
+	//mlx_destroy_image(p->e.mlx, p->e.img);
 	if (k == 65307)
 		exit(mlx_destroy_window(p->e.mlx, p->e.win));
 	else if (k == 65469)
 		p->view = (p->view >= 3) ? 1 : p->view + 1;
 	else if (k == 65454)
+	{
 		p->color = (p->color >= 4) ? 1 : p->color + 1;
+		ft_init_color(p);
+	}
 	else if (k == 65450)
 		p->reset = 0;
 	else if (k == 65455)
@@ -54,6 +59,10 @@ int		ft_key_hook(int k, t_param *p)
 
 int		ft_mouse_hook(int button, int x, int y, t_param *p)
 {
+	mlx_destroy_image(p->e.mlx, p->e.img);
+	if (button == 4 || (button == 5 && p->sq > 1))
+		p->sq += (button - 4 > 0) ? -1 : 1;
+	ft_work(p, 1);
 	return (0);
 }
 

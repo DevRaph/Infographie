@@ -16,7 +16,7 @@
 
 #define GET_COLOR(a, b) ft_get_color(a.rgb, (32 - 8 * b))
 
-static void			ft_pixel_put_to_img(int x, int y, int c, t_param *s)
+void			ft_pixel_put_to_img(int x, int y, int c, t_param *s)
 {
 	unsigned int	color;
 	unsigned char	r;

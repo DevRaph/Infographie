@@ -1,43 +1,47 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rpinet <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: rpinet <rpinet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/01/22 14:45:42 by rpinet            #+#    #+#              #
-#    Updated: 2015/01/22 14:45:44 by rpinet           ###   ########.fr        #
+#    Created: 2014/11/07 13:46:37 by rpinet            #+#    #+#              #
+#    Updated: 2014/11/21 17:30:21 by rpinet           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
-NAME = fdf
+NAME = libmlxft.a
 
-FLAG = -L/usr/X11/lib -lmlx -lXext -lX11 -L libmlxft -lmlxft -L libft -lft
+FLAG = -L/usr/X11/lib -lmlx -lXext -lX11
 
-SRC = fdf.c
+SRC = 	ft_mlx_draw_line.c \
+		ft_mlx_draw_gen.c \
+		ft_create_map.c \
+		ft_lstnew.c \
+		ft_view.c \
+		ft_mlx_draw_grid.c \
+		ft_launch.c \
+		ft_define_color.c \
+		ft_print_param.c \
+		ft_color.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	@make -C ./libft/ re
-	@make -C ./libmlxft/ re
-	@gcc -o $(NAME) $(SRC) $(FLAG)
-	@echo "\n\tRUN MY FDF\n\n"
+	@gcc $(FLAG) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
+	@echo "\033[35;1m• \033[0mRemoving object files in libmlxft ...\033[55G\c"
 	@rm -f $(OBJ)
-	@make -C libft/ clean
-	@make -C libmlxft/ clean
-	@echo "\033[35;1m•   \033[0mRemoving object files in fdf ...\033[55G\c"
 	@echo "\033[37;1m[\033[32mOK !\033[37m]\033[0m"
 
 fclean: clean
+	@echo "\033[35;1m• \033[0mRemoving $(NAME) ...\033[55G\c"
 	@rm -rf $(NAME)
-	@make -C libft/ fclean
-	@make -C libmlxft/ fclean
-	@echo "\033[35;1m•   \033[0mRemoving $(NAME) ...\033[55G\c"
 	@echo "\033[37;1m[\033[32mOK !\033[37m]\033[0m"
 
 re: fclean all

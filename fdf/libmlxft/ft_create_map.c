@@ -64,24 +64,29 @@ static void		ft_fill_list(char *pt, t_param *param)
 		param->y_max = param->xy[1];
 }
 
-int				ft_create_map(t_param *param)
+void			ft_parse_line(t_param *param, char *map)
 {
 	char		**tab;
+
+	if (ft_check_grid(map) != 0)
+		exit(0);
+	tab = ft_strsplit(map, ' ');
+	param->xy[0] = -1;
+	while (tab[++(param->xy[0])])
+	{
+		ft_fill_list(tab[param->xy[0]], param);
+	}
+	param->xy[1]++;
+}
+
+int				ft_create_map(t_param *param)
+{
 	char		*map;
 
 	param->xy[1] = 0;
 	while (get_next_line(param->fd, &map) > 0)
-	{
-		if (ft_check_grid(map) != 0)
-			return (1);
-		tab = ft_strsplit(map, ' ');
-		param->xy[0] = -1;
-		while (tab[++(param->xy[0])])
-		{
-			ft_fill_list(tab[param->xy[0]], param);
-		}
-		param->xy[1]++;
-	}
+		ft_parse_line(param, map);
+	ft_parse_line(param, map);
 	if (close(param->fd) == -1)
 		exit(ft_error("[CreateMap]: open() failed"));
 	param->list = ft_link(param->list);

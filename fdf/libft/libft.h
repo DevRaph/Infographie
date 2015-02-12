@@ -95,12 +95,11 @@ int					ft_nbrlen(int nb);
 char				**ft_strsnplit(char const *s, char *pat);
 
 int					get_next_line(int const fd, char **line);
+char				*ft_mallocat(char *s1, char *s2);
 
 char				*ft_convert_base(char *nbr, int bf, int bt);
 char				*ft_get_base(int n);
 int					ft_strpos(char const *str, char c);
 int					ft_atoi_base(char *s, int b);
-
-char				*ft_mallocat(char *s1, char *s2);
 
 #endif

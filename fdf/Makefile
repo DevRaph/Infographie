@@ -6,13 +6,13 @@
 #    By: rpinet <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/22 14:45:42 by rpinet            #+#    #+#              #
-#    Updated: 2015/01/22 14:45:44 by rpinet           ###   ########.fr        #
+#    Updated: 2015/02/09 19:04:30 by rpinet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-FLAG = -L/usr/X11/lib -lmlx -lXext -lX11 -L libmlxft -lmlxft -L libft -lft
+FLAG = -g -L/usr/X11/lib -lmlx -lXext -lX11 -L libmlxft -lmlxft -L libft -lft
 
 SRC = fdf.c
 
