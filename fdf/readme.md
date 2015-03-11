@@ -41,10 +41,10 @@ see more in [screenshots](https://github.com/DevRaph/Infographie/tree/master/fdf
 <tbody>
 <tr>
 <td valign="top" align="center">'=' key</td>
-<td valign="top" align="center">'h' for key</td>
+<td valign="top" align="center">'h' for keys<br>'p' for parameters</td>
 <td valign="top" align="center">'+' and '-' keys<br>or mouse wheel</td>
 <td valign="top" align="center">Arrows keys</td>
-<td valign="top" align="center">'<' and '>' keys<br>'\' key reset negativ level</td>
+<td valign="top" align="center">',' and '.' keys<br>'\' key reset negativ level</td>
 <td valign="top" align="center">'*' key</td>
 <td valign="top" align="center">Echap key</td>
 </tr>
