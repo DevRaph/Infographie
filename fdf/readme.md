@@ -1,6 +1,6 @@
 # FDF
 
-<img align="right" src="https://github.com/DevRaph/Infographie/blob/master/fdf/screenshots/Screen%20Shot%202015-01-02%20at%2019.35.20.png?raw=true" width="45%" />
+<img align="right" z_index=1000 src="https://github.com/DevRaph/Infographie/blob/master/fdf/screenshots/Screen%20Shot%202015-01-02%20at%2019.35.20.png?raw=true" width="45%" />
 
 This is a project of [Ecole 42](http://www.42.fr)
 
