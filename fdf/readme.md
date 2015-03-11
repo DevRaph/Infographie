@@ -1,5 +1,4 @@
 # FDF
-=====
 ## Usage
 	$>  make
 	$>  usage: ./fdf maps/../map.fdf
@@ -9,7 +8,9 @@ This is a project of [Ecole 42](http://www.42.fr)
 <img align="center" z_index=1000 src="https://github.com/DevRaph/Infographie/blob/master/fdf/screenshots/Screen%20Shot%202015-01-02%20at%2019.35.20.png?raw=true" width="85%" />
 
 
-<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br />
+see more in screenshots
+
 ## Controls
 !!!mainly use numeric tab
 
