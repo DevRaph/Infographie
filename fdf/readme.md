@@ -6,10 +6,8 @@
 This is a project of [Ecole 42](http://www.42.fr)
 <br />
 <img align="center" z_index=1000 src="https://github.com/DevRaph/Infographie/blob/master/fdf/screenshots/Screen%20Shot%202015-01-02%20at%2019.35.20.png?raw=true" width="85%" />
-
-
 <br /><br /><br /><br />
-see more in screenshots
+see more in [screenshots](https://github.com/DevRaph/Infographie/tree/master/fdf/screenshots)
 
 ## Controls
 !!!mainly use numeric tab
